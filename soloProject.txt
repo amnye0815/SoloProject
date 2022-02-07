@@ -1,0 +1,16 @@
+Solo Project Outline:
+Name: Austin Nye
+Project Title: Artist App
+Project Description:
+This will be an art-focused social media app. I am hoping to make the focus about creativity and productivity, and less about being
+"social". There will be a login/registration page that will allow you to create an account (validations included). 
+There will be a way to create projects which will be shown through photos of finished projects.
+ With in the projects section,there will an option for liking and commenting.
+ 
+New Programming Concept(s) I'm planning to learn:
+- Having a place where users can upload images.
+- Creating an application with two MTM relationships. 
+- Learn Bootstrap really well. (Making this look AWESOME).
+
+### Using this as a starting point for an application I actually want to make trying to get artists to create more, share more, and 
+create communities in their areas ###
