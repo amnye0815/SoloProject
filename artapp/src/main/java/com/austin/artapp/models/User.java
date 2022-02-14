@@ -1,4 +1,4 @@
-package com.austin.artapp.models;
+ package com.austin.artapp.models;
 
 import java.util.Date;
 import java.util.List;
@@ -68,8 +68,16 @@ public class User {
 	
 //	relationships between tables in DB
 	@OneToOne(mappedBy="user", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
-	private List<Profile> profile;
+	private Profile profile;
 	
+	public Profile getProfile() {
+		return profile;
+	}
+
+	public void setProfile(Profile profile) {
+		this.profile = profile;
+	}
+
 	@OneToMany(mappedBy="user", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
 	private List<Project> projects;
 	

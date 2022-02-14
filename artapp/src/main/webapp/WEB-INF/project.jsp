@@ -13,9 +13,13 @@
 <body>
 <div class="container">
 <h1><c:out value="${thisProject.title}"/></h1>
+<p><img src="${thisProject.image_url}"/></p>
 <p>Created By: <c:out value="${thisProject.user.firstName} ${thisProject.user.lastName}"/></p>
-<a href="/home">Home |</a>
-<a href="/logout">Log out</a>
+<p><c:out value="${thisProject.likers.size()}"/> likes!</p>
+<c:choose>
+<c:when test="${thisProject.likers.contains(user)}"><a href="/unlike/${thisProject.id}">UnLike</a></c:when>
+<c:otherwise><a href="/like/${thisProject.id}">Like</a></c:otherwise>
+</c:choose>
 <hr>
 <h3>Users who liked your project:</h3>
 <table class="table">
@@ -33,12 +37,15 @@
 </tbody>
 </table>
 <c:if test="${thisProject.user.id==userId}">
-<p>
 <form method="GET" action="/projects/${thisProject.id}/edit">
 <button>Edit</button>
 </form>
-</p>
+<form method="POST" action="/delete/${thisProject.id}">
+<input type="hidden" name="_method" value="delete">
+<button>Delete</button>
+</form>
 </c:if>
+<a href="/home">Home</a> | <a href="/logout">Log out</a>
 </div>
 </body>
 </html>

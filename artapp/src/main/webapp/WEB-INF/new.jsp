@@ -18,22 +18,25 @@
 <a href="/logout">Log out</a>
 </p>
 <hr>
-<form:form method="POST" action="/projects/new" modelAttribute="project">
+<p>${message}</p>
+<form method="POST" action="/projects/new" enctype="multipart/form-data">
 <div class="form-group">
-<form:label path="title">Title:</form:label>
-<form:errors path="title"/>
-<form:input path="title"/>
+<label for="title">Title:</label>
+<input type="text" name="title"/>
 </div>
 <div class="form-group">
-<form:label path="description">Description:</form:label>
-<form:errors path="description"/>
-<form:input path="description"/>
+<label for="image_url">Picture:</label>
+<input type="file" size="100" name="image_url" class="form-control-file" id="inlineFormInput" />
+</div>
+<div class="col-auto">
+<label for="description">Description:</label>
+<textarea class="form-group" name="description" id="exampleFormControlTextarea1" placeholder="Enter a description."></textarea>
 </div>
 <p>
-<form:input type="hidden" value="${userId}" path="user"/>
+<input type="hidden" value="${userId}" name="user"/>
 </p>
-<button>Create</button>
-</form:form>
+<button class="btn btn-primary">Create Project!</button>
+</form> 
 </div>
 </body>
 </html>

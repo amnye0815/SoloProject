@@ -6,6 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 <meta charset="ISO-8859-1">
 <title>Art App Home</title>
 </head>
@@ -15,7 +16,9 @@
 <a href="/logout">Log out</a> | <a href="/profiles/${user.id}">My Profile</a> | <a href="/projects/new">Post a Project</a>
 <div>
 <h3>Recent Projects:</h3>
-<p>grid of project images that are clickable and link to their detail pages</p>
+<c:forEach items="${allProjects}" var="project">
+<p><a href="/projects/${project.id}"><img src="${project.image_url}" /></a></p>
+</c:forEach>
 </div>
 </body>
 </html>

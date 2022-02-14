@@ -1,5 +1,11 @@
 package com.austin.artapp.controllers;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -13,6 +19,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.austin.artapp.models.Project;
 import com.austin.artapp.models.User;
@@ -25,6 +34,8 @@ public class ProjectController {
 	private UserService userService;
 	@Autowired
 	private ProjectService projService;
+	
+	private static String UPLOADED_IMGS = "src/main/resources/static/images/";
 
 //		Dash board Routes - TO MAIN PAGE
 		@GetMapping("/home")
@@ -51,20 +62,35 @@ public class ProjectController {
 		
 //		Create - POSTING A NEW PROJECT (Post)
 		@PostMapping("/projects/new")
-		public String createProject(@Valid @ModelAttribute("project") Project project, BindingResult result) {
-			if(result.hasErrors()) {
-				return "new.jsp";
-			} else {
-				this.projService.createProject(project);
+		public String createProject(@RequestParam("image_url") MultipartFile file, @RequestParam("description") String description, @RequestParam("title") String title, User user,  HttpSession session, RedirectAttributes redirectAttr) {
+//			User currentUser = this.userService.findUserById((Long)session.getAttribute("userId"));
+			if(file.isEmpty()) {
+				redirectAttr.addFlashAttribute("message", "Field cannot be empty.");
+				System.out.println("Error 2");
+				return "new.jsp";  
+			} 
+			try {
+				byte[] bytes = file.getBytes();
+				Path path = Paths.get(UPLOADED_IMGS + file.getOriginalFilename());
+				Files.write(path, bytes);
+				String url = "/images/" + file.getOriginalFilename();
+				this.projService.createProject(title, url, description, user);
+				System.out.println("Error 3");
+			} catch(IOException e) {
+				e.printStackTrace();
+				System.out.println("Error 4");
+			} 
 				return "redirect:/home";
-			}
 		}
-		
+			
+			
 //		Details - GETTING TO SPECIFIC PROJECT (Get)
 		@GetMapping("/projects/{id}")
 		public String detailProject(Model model, @PathVariable("id") Long id, HttpSession session) {
 			if(session.getAttribute("userId")!=null) {
+				Long User_id = (Long) session.getAttribute("userId");
 				model.addAttribute("thisProject", this.projService.findProject(id));
+				model.addAttribute("user", this.userService.findUserById(User_id));
 				return "project.jsp";
 			} else {
 				return "redirect:/";
@@ -85,12 +111,12 @@ public class ProjectController {
 
 //		Edit - UPDATING PROJECT (Put)
 		@PutMapping("/projects/{id}/edit")
-		public String updateProject(@Valid @ModelAttribute("project") Project project, BindingResult result, Model model, @PathVariable("id") Long id) {
+		public String updateProject(@Valid @ModelAttribute("project") Project project, BindingResult result, Model model, @PathVariable("id") Long id, User user, List<User> likers, HttpSession session) {
 			if(result.hasErrors()) {
 				model.addAttribute("project", this.projService.findProject(id));
 				return "redirect:/projects/{id}/edit";
 			}
-			this.projService.updateProject(project);
+			this.projService.updateProject(project, user, likers);
 			return "redirect:/projects/{id}";
 		}
 		

@@ -35,13 +35,13 @@
 		    </div>
 	      <div class="form-group">
 	            <form:label path="password">Password:</form:label>
+	            <form:errors class="text-danger" path="password"/>
 	            <form:password class="form-control" path="password"/>
-				<form:errors class="text-danger" path="password"/>
 	       </div>
 	       <div class="form-group">
 	            <form:label path="passwordConfirm">Confirm Password:</form:label>
+	            <form:errors class="text-danger" path="passwordConfirm"/>
 	            <form:password class="form-control" path="passwordConfirm"/>
-				<form:errors class="text-danger" path="passwordConfirm"/>
 			</div>
 			<input type="submit" value="Register"/>
 	    </form:form>

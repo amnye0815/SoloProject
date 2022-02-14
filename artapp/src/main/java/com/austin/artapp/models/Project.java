@@ -16,8 +16,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name="projects")
@@ -26,16 +28,20 @@ public class Project {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotNull
+	@NotBlank
 	@Size(min=2, max=255, message="Title should be between 2-255 characters!")
 	private String title;
 	
-	@NotNull
+	private String image_url;
+	
+	@NotBlank
 	@Size(min=2, max=255, message="Description should be between 2-255 characters!")
 	private String description;
 	
 	@Column(updatable=false)
+	@DateTimeFormat(pattern="yyy-MM-DD HH:mm:ss")
 	private Date createdAt;
+
 	private Date updatedAt;
 	
 	@PrePersist
@@ -48,7 +54,7 @@ public class Project {
 		this.updatedAt = new Date();
 	}
 	
-	
+//	Relationships in DB
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="user_id")
 	private User user;
@@ -61,8 +67,16 @@ public class Project {
 		)
 	private List<User> likers;
 
+// Constructors and Getters/Setters
 	public Project() {
-		
+
+	}
+
+	public Project(@NotBlank @Size(min = 2, max = 255, message = "Title should be between 2-255 characters!") String title, String image_url, @NotBlank @Size(min = 2, max = 255, message = "Description should be between 2-255 characters!") String description, User user) {
+		this.title = title;
+		this.image_url = image_url;
+		this.description = description;
+		this.user = user;
 	}
 
 	public Long getId() {
@@ -119,6 +133,14 @@ public class Project {
 
 	public void setLikers(List<User> likers) {
 		this.likers = likers;
+	}
+
+	public String getImage_url() {
+		return image_url;
+	}
+
+	public void setImage_url(String image_url) {
+		this.image_url = image_url;
 	}
 	
 }

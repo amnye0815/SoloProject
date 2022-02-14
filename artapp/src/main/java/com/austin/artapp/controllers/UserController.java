@@ -15,7 +15,11 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.austin.artapp.models.Profile;
+import com.austin.artapp.models.Project;
 import com.austin.artapp.models.User;
+import com.austin.artapp.services.ProfileService;
+import com.austin.artapp.services.ProjectService;
 import com.austin.artapp.services.UserService;
 import com.austin.artapp.validator.UserValidator;
 
@@ -25,6 +29,10 @@ public class UserController {
 	private UserService userService;
 	@Autowired
 	private UserValidator userValidator;
+	@Autowired
+	private ProfileService profService;
+	@Autowired
+	private ProjectService projService;
 
 
 //	home - LOGIN/REGISTRATION PAGE
@@ -68,34 +76,56 @@ public class UserController {
 	
 //	Profile - GETTING TO SPECIFIC USER (Get)
 	@GetMapping("/profiles/{id}")
-	public String detailUser(Model model, @PathVariable("id") Long id, HttpSession session) {
+	public String detailUser(Model model, @PathVariable("id") Long id, User user, HttpSession session, @ModelAttribute("project") Project project) {
 		if(session.getAttribute("userId")!=null) {
 			model.addAttribute("thisUser", this.userService.findUserById(id));
+			model.addAttribute("project", this.projService.thisUsersProjects(user));
 			return "profile.jsp";
 		} else {
 			return "redirect:/";
 		}
 	}
 	
+//	New - Getting to creation page (get)
+//	@GetMapping("profiles/{id}/new")
+//	public String newProfile(@ModelAttribute("profile") Profile profile, HttpSession session) {
+//		if(session.getAttribute("userId")!=null) {
+//			return "newProfile.jsp";
+//		} else {
+//			return "redirect:/home";
+//		}
+//	}
+	
+//	Create - creating new profile (post)
+//	@PostMapping("profiles/{id}/new")
+//	public String createProfile(@Valid @ModelAttribute("profile") Profile profile, BindingResult result) {
+//		if(result.hasErrors()) {
+//			return "redirect:/home";
+//		} else {
+//			this.profService.createProfile(profile);
+//			return "profile.jsp";
+//		}
+//	}
+	
+	
 //	Edit - GETTING TO EDIT PROFILE PAGE (Get)
 	@GetMapping("/profiles/{id}/edit")
-	public String editUser(Model model, @ModelAttribute("user") User user, @PathVariable("id") Long id, HttpSession session) {
+	public String editUser(Model model, @ModelAttribute("user") User user, @ModelAttribute("profile") Profile profile, @PathVariable("id") Long id, HttpSession session) {
 		if(session.getAttribute("userId")!=null) {
 			model.addAttribute("thisUser", this.userService.findUserById(id));
+			model.addAttribute("thisProfile", this.profService.findProfile(id));
 			return "profileEdit.jsp";
 		} else {
 			return "redirect:/";
 		}
 	}
 	
-//	Edit - UPDATING PROFILE (Put)
+//	UPDATE - UPDATING PROFILE (Put)
 	@PutMapping("/profiles/{id}/edit")
-	public String updateUser(@Valid @ModelAttribute("user") User user, Model model, @PathVariable("id") Long id) {
-//		if(result.hasErrors()) {
-			model.addAttribute("user", this.userService.findUserById(id));
-//			return "redirect:/profiles/{id}/edit";
-//		}
-		this.userService.updateUser(user);
+	public String updateUser(@Valid @ModelAttribute("user") User user, @ModelAttribute("profile") Profile profile, Model model, @PathVariable("id") Long id) {
+		model.addAttribute("user", this.userService.findUserById(id));
+		model.addAttribute("profile", this.profService.findProfile(id));
+		this.profService.updateProfile(profile);
 		return "redirect:/profiles/{id}";
 	}
 	

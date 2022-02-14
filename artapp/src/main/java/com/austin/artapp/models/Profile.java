@@ -1,15 +1,14 @@
 package com.austin.artapp.models;
 
 import java.util.Date;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
@@ -44,8 +43,9 @@ public class Profile {
 	}
 	
 //	relationships between tables in DB
-	@OneToOne(mappedBy="profile", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
-	private List<User> user;
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="user_id")
+	private User user;
 
 public Profile() {
 	
@@ -107,12 +107,5 @@ public void setUpdatedAt(Date updatedAt) {
 	this.updatedAt = updatedAt;
 }
 
-public List<User> getUser() {
-	return user;
-}
-
-public void setUser(List<User> user) {
-	this.user = user;
-}
 	
 }

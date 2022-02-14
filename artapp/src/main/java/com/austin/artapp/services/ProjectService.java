@@ -28,13 +28,21 @@ public class ProjectService {
 		return projRepo.findById(id).orElse(null);
 	}
 	
+//	find one user's projects:
+	public List<Project> thisUsersProjects(User id) {
+		return projRepo.findByUser(id);
+	}
+	
 //	create project:
-	public Project createProject(Project project) {
-		return this.projRepo.save(project);
+	public void createProject(String title, String url, String description, User user) {
+		Project newProject = new Project(title, url, description, user);
+		this.projRepo.save(newProject);
 	}
 	
 //	update project:
-	public Project updateProject(Project project) {
+	public Project updateProject(Project project, User user, List<User> likers) {
+		project.getLikers();
+		project.setLikers(likers);
 		return this.projRepo.save(project);
 	}
 	

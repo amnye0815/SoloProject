@@ -49,16 +49,6 @@ public class UserService {
             }
         }
     }
-   
-//	update user:
-	public User updateUser(User user) {
-		return this.uRepo.save(user);
-	}
-	
-// delete project:
-	public void deleteUser(Long id) {
-		this.uRepo.deleteById(id);
-	}
 	
 }
 
