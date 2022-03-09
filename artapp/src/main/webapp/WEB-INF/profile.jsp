@@ -16,7 +16,7 @@
 <hr>
 <h3>Portfolio:</h3>
 <c:forEach items="${project}" var="usersProject">
-<p><a href="/projects/${usersProject.id}"><c:out value="${usersProject.image_url}"/></a></p>
+<p><a href="/projects/${usersProject.id}"><img src="${usersProject.image_url}"/></a></p>
 </c:forEach>
 </body>
 </html>

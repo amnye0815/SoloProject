@@ -39,7 +39,7 @@ public class Project {
 	private String description;
 	
 	@Column(updatable=false)
-	@DateTimeFormat(pattern="yyy-MM-DD HH:mm:ss")
+	@DateTimeFormat(pattern="yyy-MM-DD")
 	private Date createdAt;
 
 	private Date updatedAt;

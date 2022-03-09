@@ -15,6 +15,7 @@
 <h1><c:out value="${thisProject.title}"/></h1>
 <p><img src="${thisProject.image_url}"/></p>
 <p>Created By: <c:out value="${thisProject.user.firstName} ${thisProject.user.lastName}"/></p>
+<p>Created At: <c:out value="${thisProject.createdAt}" /></p>
 <p><c:out value="${thisProject.likers.size()}"/> likes!</p>
 <c:choose>
 <c:when test="${thisProject.likers.contains(user)}"><a href="/unlike/${thisProject.id}">UnLike</a></c:when>
