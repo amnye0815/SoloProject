@@ -30,6 +30,9 @@
 <form:input path="description"/>
 </div>
 <p>
+<form:input type="hidden" value="${project.image_url}" path="image_url"/>
+</p>
+<p>
 <form:input type="hidden" value="${userId}" path="user"/>
 </p>
 <button>Update</button>
