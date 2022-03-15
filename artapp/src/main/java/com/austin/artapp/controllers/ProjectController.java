@@ -118,19 +118,11 @@ public class ProjectController {
 
 //		Edit - UPDATING PROJECT (Put)
 		@PutMapping("/projects/{id}/edit")
-		public String updateProject(@Valid @ModelAttribute("project") Project project, BindingResult result, Model model, @PathVariable("id") Long id, User user, HttpSession session) {
+		public String updateProject(@Valid @ModelAttribute("project") Project project, BindingResult result, Model model, @PathVariable("id") Long id, User user, List<User> likers, HttpSession session) {
 			if(result.hasErrors()) {
 				model.addAttribute("project", this.projService.findProject(id));
 				return "redirect:/projects/{id}/edit";
 			}
-//			Project originalProject = this.projService.findProject(id);
-//			Update project with each attribute at a time - update service to match.
-//			Project originalProject = this.projService.findProject(id);
-//			this.projService.updateProject(project.getTitle(), project.getDescription());
-			// Require an updated version of updateProject that accepts Strings for title and description
-
-			List<User> likers = project.getLikers();
-			System.out.println(likers);
 			this.projService.updateProject(project, user, likers);
 			return "redirect:/projects/{id}";
 		}
@@ -150,7 +142,7 @@ public class ProjectController {
 		    return ResponseEntity.ok()
 		        .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getFilename() + "\"").body(file);
 		  }
-		  
+		
 //		MTM Like Functionality
 		
 //		Like Project
