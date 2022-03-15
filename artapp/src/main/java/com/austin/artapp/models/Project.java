@@ -32,7 +32,7 @@ public class Project {
 	@Size(min=2, max=255, message="Title should be between 2-255 characters!")
 	private String title;
 	
-	private String image_url;
+	private String image_url = "";
 	
 	@NotBlank
 	@Size(min=2, max=255, message="Description should be between 2-255 characters!")

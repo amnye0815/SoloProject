@@ -16,9 +16,11 @@
 <a href="/logout">Log out</a> | <a href="/profiles/${user.id}">My Profile</a> | <a href="/projects/new">Post a Project</a>
 <div>
 <h3>Recent Projects:</h3>
+<div class="d-flex flex-wrap justify-content-around">
 <c:forEach items="${allProjects}" var="project">
 <p><a href="/projects/${project.id}"><img src="${project.image_url}" /></a></p>
 </c:forEach>
+</div>
 </div>
 </body>
 </html>

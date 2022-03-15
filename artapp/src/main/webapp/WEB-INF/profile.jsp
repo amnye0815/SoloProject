@@ -10,13 +10,15 @@
 <meta charset="ISO-8859-1">
 <title>Profile</title>
 </head>
-<body>
+<body style="margin: 10px">
 <h1>${thisUser.firstName} ${thisUser.lastName}'s Profile</h1>
 <a href="/logout">Log out</a> | <a href="/home">Home</a> | <a href="/projects/new">Post a Project</a>
 <hr>
 <h3>Portfolio:</h3>
+<div class="d-flex flex-wrap justify-content-around">
 <c:forEach items="${project}" var="usersProject">
-<p><a href="/projects/${usersProject.id}"><img src="${usersProject.image_url}"/></a></p>
+<p class="h-25"><a href="/projects/${usersProject.id}"><img src="${usersProject.image_url}"/></a></p>
 </c:forEach>
+</div>
 </body>
 </html>

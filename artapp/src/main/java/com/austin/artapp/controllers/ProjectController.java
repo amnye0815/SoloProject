@@ -10,6 +10,9 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -20,11 +23,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.austin.artapp.models.Project;
 import com.austin.artapp.models.User;
+import com.austin.artapp.services.FilesService;
 import com.austin.artapp.services.ProjectService;
 import com.austin.artapp.services.UserService;
 
@@ -34,6 +39,8 @@ public class ProjectController {
 	private UserService userService;
 	@Autowired
 	private ProjectService projService;
+	@Autowired
+	private FilesService filesService;
 	
 	private static String UPLOADED_IMGS = "src/main/resources/static/images/";
 
@@ -111,11 +118,19 @@ public class ProjectController {
 
 //		Edit - UPDATING PROJECT (Put)
 		@PutMapping("/projects/{id}/edit")
-		public String updateProject(@Valid @ModelAttribute("project") Project project, BindingResult result, Model model, @PathVariable("id") Long id, User user, List<User> likers, HttpSession session) {
+		public String updateProject(@Valid @ModelAttribute("project") Project project, BindingResult result, Model model, @PathVariable("id") Long id, User user, HttpSession session) {
 			if(result.hasErrors()) {
 				model.addAttribute("project", this.projService.findProject(id));
 				return "redirect:/projects/{id}/edit";
 			}
+//			Project originalProject = this.projService.findProject(id);
+//			Update project with each attribute at a time - update service to match.
+//			Project originalProject = this.projService.findProject(id);
+//			this.projService.updateProject(project.getTitle(), project.getDescription());
+			// Require an updated version of updateProject that accepts Strings for title and description
+
+			List<User> likers = project.getLikers();
+			System.out.println(likers);
 			this.projService.updateProject(project, user, likers);
 			return "redirect:/projects/{id}";
 		}
@@ -127,6 +142,15 @@ public class ProjectController {
 			return "redirect:/home";
 		}
 		
+//		File Upload
+		  @GetMapping("/files/{filename:.+}")
+		  @ResponseBody
+		  public ResponseEntity<Resource> getFile(@PathVariable String filename) {
+		    Resource file = filesService.load(filename);
+		    return ResponseEntity.ok()
+		        .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getFilename() + "\"").body(file);
+		  }
+		  
 //		MTM Like Functionality
 		
 //		Like Project

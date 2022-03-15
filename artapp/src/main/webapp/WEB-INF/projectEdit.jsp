@@ -18,7 +18,8 @@
 <a href="/logout">Log out</a>
 </p>
 <hr>
-<form:form method="PUT" action="/projects/${project.id}/edit" modelAttribute="project">
+<form:form method="POST" action="/projects/${project.id}/edit" modelAttribute="project">
+<input type="hidden" name="_method" value="put">
 <div class="form-group">
 <form:label path="title">Title:</form:label>
 <form:errors path="title"/>
