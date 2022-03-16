@@ -118,12 +118,15 @@ public class ProjectController {
 
 //		Edit - UPDATING PROJECT (Put)
 		@PutMapping("/projects/{id}/edit")
-		public String updateProject(@Valid @ModelAttribute("project") Project project, BindingResult result, Model model, @PathVariable("id") Long id, User user, List<User> likers, HttpSession session) {
+		public String updateProject(@Valid @ModelAttribute("project") Project project, BindingResult result, Model model, @PathVariable("id") Long id, HttpSession session) {
 			if(result.hasErrors()) {
 				model.addAttribute("project", this.projService.findProject(id));
 				return "redirect:/projects/{id}/edit";
 			}
-			this.projService.updateProject(project, user, likers);
+			Project updatedProject = this.projService.findProject(id);
+			List<User> likers = updatedProject.getLikers();
+			project.setLikers(likers);
+			this.projService.updateProject(project);
 			return "redirect:/projects/{id}";
 		}
 		

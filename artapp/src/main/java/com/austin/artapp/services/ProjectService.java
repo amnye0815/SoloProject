@@ -40,10 +40,11 @@ public class ProjectService {
 	}
 	
 //	update project:
-	public Project updateProject(Project project, User user, List<User> likers) {
-		project.getLikers();
-		System.out.println(project.getLikers());
-		project.setLikers(likers);
+	public Project updateProject(Project project) {
+//		project.getLikers();
+//		System.out.println(project.getLikers());
+//		project.setLikers(likers);
+		System.out.println(project.getId());
 		return this.projRepo.save(project);
 	}
 	
