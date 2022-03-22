@@ -16,37 +16,35 @@
 </head>
 <body class="background">
 <div class="container">
-<div class="d-flex flex-wrap justify-content-center">
-<div>
-<img class="icon" src="/images/camera.png" />
-<h2 class="header align-self-end">Post Your Creation</h2> 
-</div>
-</div>
-<hr>
-<div class="d-flex justify-content-center">
-<a class="links" style="color: #0DCAF0" href="/home">Home</a> | <a class="links" style="color: #0DCAF0" href="/logout">Log out</a>
-</div>
-<hr>
-<div class="d-flex justify-content-center">
-<form method="POST" action="/projects/new" enctype="multipart/form-data">
-<div class="form-group">
-<label for="title">Title:</label>
-<input  class="form-group" type="text" name="title"/>
-</div>
-<div class="form-group">
-<label for="image_url">Picture:</label>
-<input type="file" size="100" name="image_url" class="form-control-file form-group" id="inlineFormInput" />
-</div>
-<div class="form-group">
-<label for="description">Description:</label>
-<textarea class="form-group" name="description" id="exampleFormControlTextarea1" placeholder="Enter a description."></textarea>
-</div>
-<p>
-<input type="hidden" value="${userId}" name="user"/>
-</p>
-<button class="btn-lg btn-info">Share Project!</button>
-</form>
-</div>
+	<div class="d-flex flex-column justify-content-center align-items-center">
+		<img class="icon" src="/images/camera.png" />
+		<h2>Post Your Creation</h2> 
+	</div>
+	<hr>
+	<div class="d-flex justify-content-center">
+		<a class="links" style="color: #0DCAF0" href="/home">Home</a> | <a class="links" style="color: #0DCAF0" href="/logout">Log out</a>
+	</div>
+	<hr>
+	<div class="d-flex justify-content-center">
+		<form method="POST" action="/projects/new" enctype="multipart/form-data">
+			<div class="form-group">
+				<label for="title">Title:</label>
+				<input  class="form-group" type="text" name="title"/>
+			</div>
+			<div class="form-group">
+				<label for="image_url">Picture:</label>
+				<input type="file" size="100" name="image_url" class="form-control-file form-group" id="inlineFormInput" />
+			</div>
+			<div class="form-group">
+				<label for="description">Description:</label>
+				<textarea class="form-group" name="description" id="exampleFormControlTextarea1" placeholder="Enter a description."></textarea>
+			</div>
+			<p>
+				<input type="hidden" value="${userId}" name="user"/>
+			</p>
+			<button class="btn-lg btn-info">Share Project!</button>
+		</form>
+	</div>
 </div>
 </body>
 </html>

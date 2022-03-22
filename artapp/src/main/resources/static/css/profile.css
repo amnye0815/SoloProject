@@ -6,7 +6,8 @@
 
 .container {
 	background-color: white;
-	height: 750px;
+	max-width: 1500px;
+	height: 937px;
 }
 
 img {
@@ -21,7 +22,6 @@ img {
 	height: 80px;
 	object-fit: cover;
 	background-color: white;
-	margin-left: 110px;
 }
 
 .portfolio {

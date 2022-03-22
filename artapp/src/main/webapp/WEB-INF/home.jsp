@@ -16,24 +16,22 @@
 </head>
 <body class="background">
 <div class="container">
-<div class="d-flex flex-wrap justify-content-center">
-<div>
-<img class="icon" src="images/camera.png" />
-<h2 class="align-self-end">Art App</h2> 
-</div>
-</div>
-<hr>
-<div class="d-flex justify-content-center">
-<a class="links" style="color: #0DCAF0" href="/logout">Log out</a> | <a class="links" style="color: #0DCAF0" href="/profiles/${user.id}">My Profile</a> | <a class="links" style="color: #0DCAF0" href="/projects/new">Post a Project</a>
-</div>
-<hr>
-<div class="portfolio">
-<div class="d-flex flex-wrap justify-content-start">
-<c:forEach items="${allProjects}" var="project">
-<p><a href="/projects/${project.id}"><img class="border border-info rounded" src="${project.image_url}" /></a></p>
-</c:forEach>
-</div>
-</div>
+	<div class="d-flex flex-column justify-content-center align-items-center">
+		<img class="icon" src="images/camera.png" />
+	<h2>Art App</h2> 
+	</div>
+	<hr>
+	<div class="d-flex justify-content-center">
+		<a class="links" style="color: #0DCAF0" href="/logout">Log out</a> | <a class="links" style="color: #0DCAF0" href="/profiles/${user.id}">My Profile</a> | <a class="links" style="color: #0DCAF0" href="/projects/new">Post a Project</a>
+	</div>
+	<hr>
+	<div class="portfolio">
+		<div class="d-flex flex-wrap justify-content-start">
+			<c:forEach items="${allProjects}" var="project">
+				<p><a href="/projects/${project.id}"><img class="border border-info rounded" src="${project.image_url}" /></a></p>
+			</c:forEach>
+		</div>
+	</div>
 </div>
 </body>
 </html>

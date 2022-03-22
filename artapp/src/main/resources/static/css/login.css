@@ -5,12 +5,13 @@
 }
 
 .hr {
-	width: 1200px;
+	width: 1500px;
 }
 
 .container {
 	background-color: white;
-	height: 750px;
+	max-width: 1500px;
+	height: 937px;
 	padding: 10px;
 }
 

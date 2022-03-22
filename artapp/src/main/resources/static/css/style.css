@@ -6,6 +6,7 @@
 
 .container {
 	background-color: white;
+	max-width: 1500px;
 }
 
 img {
@@ -23,8 +24,9 @@ img {
 }
 
 .portfolio {
-	margin-left: 100px;
-	margin-right: 100px;
+	display: flex;
+	justify-content: center;
+	margin-left: 130px;
 	background-color: white;
 }
 
