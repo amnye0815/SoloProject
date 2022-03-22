@@ -7,13 +7,13 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="css/input.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
 <title>Post a Project</title>
 </head>
 <body>
 <div class="container">
-<h1>Post a new project</h1>
+<h2>Edit</h2>
 <p>
 <a href="/home">Home |</a>
 <a href="/logout">Log out</a>

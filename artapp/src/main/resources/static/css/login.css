@@ -4,19 +4,28 @@
 	background-color: orange;
 }
 
+.hr {
+	width: 1200px;
+}
+
 .container {
 	background-color: white;
-	height: 1000px;
+	height: 750px;
 	padding: 10px;
 }
 
-input {
+.btn {
 	margin-top: 10px;
 }
 
 h2 {
 	text-align: center;
 	font-family: 'Monoton', cursive;
+}
+
+h4 {
+	font-style: italic;
+	font-weight: lighter;
 }
 
 .icon {

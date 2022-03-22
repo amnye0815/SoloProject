@@ -33,6 +33,10 @@ h2 {
 	font-family: 'Monoton', cursive;
 }
 
+.header {
+	word-spacing: 8px;
+}
+
 .links {
 	margin-left: 10px;
 	margin-right: 10px;

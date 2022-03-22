@@ -1,1 +1,55 @@
 @charset "ISO-8859-1";
+
+.background {
+	background-color: orange;
+}
+
+.container {
+	background-color: white;
+	height: 625px;
+}
+
+.links {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+a:link {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.icon {
+	width: 100px;
+	height: 80px;
+	object-fit: cover;
+	background-color: white;
+	margin-left: 120px;
+	margin-top: 10px;
+}
+
+h2 {
+	text-align: center;
+	font-family: 'Monoton', cursive;
+}
+
+.header {
+	word-spacing: 8px;
+}
+
+.form-group {
+	margin: 10px;
+	width: 500px;
+}
+
+label {
+	font-style: italic;
+	font-size: 20px;
+}
+
+.btn-lg {
+	margin-left: 200px ;
+}

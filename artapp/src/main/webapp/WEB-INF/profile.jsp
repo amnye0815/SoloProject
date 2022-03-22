@@ -7,7 +7,7 @@
 <html>
 <head>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="/css/profile.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
@@ -16,17 +16,23 @@
 </head>
 <body class="background">
 <div class="container">
-<div class="header">
-<h2 class="d-flex flex-wrap justify-content-center">${thisUser.firstName}'s Profile</h2>
+<div class="d-flex flex-wrap justify-content-center">
+<div>
+<img class="icon" src="/images/camera.png" />
+<h2 class="header align-self-center">${thisUser.firstName}'s Profile</h2> 
+</div>
 </div>
 <hr>
-<a class="links" href="/logout">Log out</a> | <a class="links" href="/home">Home</a> | <a class="links" href="/projects/new">Post a Project</a>
+<div class="d-flex justify-content-center">
+<a class="links" style="color: #0DCAF0" href="/logout">Log out</a> | <a class="links" style="color: #0DCAF0" href="/home">Home</a> | <a class="links" style="color: #0DCAF0" href="/projects/new">Post a Project</a>
+</div>
 <hr>
-<h4>Portfolio:</h4>
-<div class="d-flex flex-wrap justify-content-around">
+<div class="portfolio">
+<div class="d-flex flex-wrap justify-content-start">
 <c:forEach items="${project}" var="usersProject">
-<p class="h-25"><a href="/projects/${usersProject.id}"><img src="${usersProject.image_url}"/></a></p>
+<p class="h-25"><a href="/projects/${usersProject.id}"><img class="border border-info rounded" src="${usersProject.image_url}"/></a></p>
 </c:forEach>
+</div>
 </div>
 </div>
 </body>
