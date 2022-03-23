@@ -31,8 +31,8 @@
 		<p>Description: <c:out value="${thisProject.description}" /></p>
 		<p><c:out value="${thisProject.likers.size()}"/> likes!</p>
 			<c:choose>
-				<c:when test="${thisProject.likers.contains(user)}"><a href="/unlike/${thisProject.id}">UnLike</a></c:when>
-				<c:otherwise><a href="/like/${thisProject.id}">Like</a></c:otherwise>
+				<c:when test="${thisProject.likers.contains(user)}"><a style="color: #0DCAF0" href="/unlike/${thisProject.id}">UnLike</a></c:when>
+				<c:otherwise><a style="color: #0DCAF0" href="/like/${thisProject.id}">Like</a></c:otherwise>
 			</c:choose>
 	</div>
 	<hr>
