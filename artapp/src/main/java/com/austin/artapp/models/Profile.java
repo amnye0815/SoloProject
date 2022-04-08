@@ -51,6 +51,14 @@ public Profile() {
 	
 }
 
+public Profile(Integer age, String location, String bio, String media, User user) {
+	this.age = age;
+	this.location = location;
+	this.bio = bio;
+	this.media = media;
+	this.user = user;
+}
+
 public Long getId() {
 	return id;
 }
@@ -105,6 +113,14 @@ public Date getUpdatedAt() {
 
 public void setUpdatedAt(Date updatedAt) {
 	this.updatedAt = updatedAt;
+}
+
+public User getUser() {
+	return user;
+}
+
+public void setUser(User user) {
+	this.user = user;
 }
 
 	

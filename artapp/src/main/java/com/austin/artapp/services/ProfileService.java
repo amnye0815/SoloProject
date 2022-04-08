@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.austin.artapp.models.Profile;
+import com.austin.artapp.models.User;
 import com.austin.artapp.repositories.ProfileRepository;
 
 
@@ -27,13 +28,25 @@ public class ProfileService {
 		return profRepo.findById(id).orElse(null);
 	}
 	
+//	find one user's profile:
+	public Profile thisUsersProfile(User id) {
+		return profRepo.findByUser(id);
+	}
+	
 //	create profile:
-	public Profile createProfile(Profile profile) {
-		return this.profRepo.save(profile);
+	public Profile createProfile(Integer age, String location, String bio, String media, User user) {
+		Profile newProfile = new Profile(age, location, bio, media, user);
+		return this.profRepo.save(newProfile);
 	}
 	
 //	update profile:
 	public Profile updateProfile(Profile profile) {
+		System.out.println(profile.getId());
 		return this.profRepo.save(profile);
+	}
+	
+//	delete profile: 
+	public void deleteProfile(Long id) {
+		this.profRepo.deleteById(id);
 	}
 }

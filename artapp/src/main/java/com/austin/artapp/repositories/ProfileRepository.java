@@ -13,7 +13,7 @@ import com.austin.artapp.models.User;
 public interface ProfileRepository extends CrudRepository<Profile, Long> {
 
 //	finds profile by user:
-	List<Profile> findByUser(User user_id);	
+	Profile findByUser(User user_id);	
 	
 //	finds all
 	List<Profile> findAll();

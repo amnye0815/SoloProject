@@ -16,22 +16,31 @@
 </head>
 <body class="background">
 <div class="container">
-	<div class="d-flex flex-column justify-content-center align-items-center">
-		<img class="icon" src="/images/camera.png" />
-		<h2 class="header align-self-center">${thisUser.firstName}'s Profile</h2>
-	</div>
-	<hr>
-	<div class="d-flex justify-content-center">
-		<a class="links" style="color: #0DCAF0" href="/logout">Log out</a> | <a class="links" style="color: #0DCAF0" href="/home">Home</a> | <a class="links" style="color: #0DCAF0" href="/projects/new">Post a Project</a>
-	</div>
-	<hr>
-	<div class="portfolio">
-		<div class="d-flex flex-wrap justify-content-start">
-			<c:forEach items="${project}" var="usersProject">
-				<p class="h-25"><a href="/projects/${usersProject.id}"><img class="border border-info rounded" src="${usersProject.image_url}"/></a></p>
-			</c:forEach>
+		<div class="d-flex flex-column justify-content-center align-items-center">
+			<img class="icon" src="/images/camera.png" />
+			<h2 class="header align-self-center">${thisUser.firstName}'s Profile</h2>
 		</div>
-	</div>
+	<hr>
+		<div class="d-flex justify-content-center">
+			<a class="links" style="color: #0DCAF0" href="/logout">Log out</a> | <a class="links" style="color: #0DCAF0" href="/home">Home</a> | <a class="links" style="color: #0DCAF0" href="/projects/new">Post a Project</a>
+		</div>
+	<hr>
+		<div class="d-flex flex-column justify-content-start">
+			<p>Name: ${thisUser.firstName} ${thisUser.lastName}</p>
+			<p>Age: ${profile.age}</p>
+			<p>Location: ${profile.location}</p>
+			<p>Bio: ${profile.bio}</p>
+			<p>Media of choice: ${profile.media}</p>
+		</div>
+		<a href="/profiles/${thisUser.id}/edit">EDIT INFO</a>
+	<hr>
+		<div class="portfolio">
+			<div class="d-flex flex-wrap justify-content-start">
+				<c:forEach items="${project}" var="usersProject">
+					<p class="h-25"><a href="/projects/${usersProject.id}"><img class="border border-info rounded" src="${usersProject.image_url}"/></a></p>
+				</c:forEach>
+			</div>
+		</div>
 </div>
 </body>
 </html>
