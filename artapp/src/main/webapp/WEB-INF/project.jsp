@@ -8,7 +8,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="/css/detail.css">
+<link rel="stylesheet" type="text/css" href="/css/style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
@@ -17,7 +17,7 @@
 <body class="background">
 <div class="container">
 	<div class="header d-flex flex-column justify-content-center align-items-center">
-		<img class="icon" src="/images/camera.png" />
+		<a href="/home"><img class="icon" src="/images/camera.png" /></a>
 		<h2><c:out value="${thisProject.title}"/></h2> 
 		<p>Created By: <a style="color: #0DCAF0" href="/profiles/${thisProject.user.id}"><c:out value="${thisProject.user.firstName} ${thisProject.user.lastName}"/></a></p>
 	</div>
@@ -29,29 +29,13 @@
 	<img class="border border-info rounded" src="${thisProject.image_url}"/>
 	<div class="img-deets">
 		<p>Description: <c:out value="${thisProject.description}" /></p>
-		<p><c:out value="${thisProject.likers.size()}"/> likes!</p>
+		<p><c:out value="${thisProject.likers.size()}"/> <a href="/projects/${thisProject.id}/likers">likes!</a></p>
 			<c:choose>
 				<c:when test="${thisProject.likers.contains(user)}"><a style="color: #0DCAF0" href="/unlike/${thisProject.id}">UnLike</a></c:when>
 				<c:otherwise><a style="color: #0DCAF0" href="/like/${thisProject.id}">Like</a></c:otherwise>
 			</c:choose>
 	</div>
 	<hr>
-	<div class="likers">
-		<h3>Users who liked your project:</h3>
-		<table class="table">
-			<thead>
-				<tr>
-					<th>Name:</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach items="${thisProject.likers}" var="user">
-					<tr>
-						<td><c:out value="${user.firstName} ${user.lastName}" /></td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
 		<div class="d-flex justify-content-start">
 			<c:if test="${thisProject.user.id==userId}">
 				<form method="GET" action="/projects/${thisProject.id}/edit">
@@ -64,6 +48,5 @@
 			</c:if>
 		</div>
 	</div>
-</div>
 </body>
 </html>

@@ -1,17 +1,32 @@
 @charset "ISO-8859-1";
 
 .background {
-	background-color: orange;
+	background-image: url("/images/pexels-steve-johnson-1572386.jpg");
+}
+
+.topper {
+	margin-top: 50px;
+	padding-top: 20px;
+	border-radius: 5px;
 }
 
 .container {
-	background-color: white;
-	max-width: 1500px;
+	background-color: rgba(255, 255, 255, 0.65);
+	position: relative;
+	width: 80;
+	border-radius: 10px;
+}
+
+h4 {
+	font-family: 'Monoton', cursive;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 img {
-	width: 280px;
-	height: 280px;
+	width: 330px;
+	height: 330px;
 	object-fit: cover;
 	margin: 10px;
 }
@@ -20,14 +35,13 @@ img {
 	width: 100px;
 	height: 80px;
 	object-fit: cover;
-	background-color: white;
 }
 
 .portfolio {
-	display: flex;
-	justify-content: center;
-	margin-left: 130px;
-	background-color: white;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	margin-bottom: 50px;
+	border-radius: 5px;
 }
 
 h2 {
@@ -50,4 +64,8 @@ a:link {
 
 a:hover {
 	text-decoration: underline;
+}
+
+.table {
+	font-size: 20px;
 }

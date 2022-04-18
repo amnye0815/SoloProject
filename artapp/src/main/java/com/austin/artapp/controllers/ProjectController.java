@@ -169,5 +169,18 @@ public class ProjectController {
 			projService.unlikeProject(project, user);
 			return "redirect:/projects/{id}";
 		}
+		
+//		Viewing Likers of Project
+		@GetMapping("/projects/{id}/likers")
+		public String likers(@PathVariable("id") Long id, HttpSession session, Model model) {
+			if(session.getAttribute("userId")!=null) {
+				Long User_id = (Long) session.getAttribute("userId");
+				model.addAttribute("thisProject", this.projService.findProject(id));
+				model.addAttribute("user", this.userService.findUserById(User_id));
+				return "likers.jsp";
+			} else {
+				return "redirect:/";
+			}
+		}
 
 }

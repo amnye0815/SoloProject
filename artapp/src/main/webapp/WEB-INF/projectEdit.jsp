@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="/css/input.css">
+<link rel="stylesheet" type="text/css" href="/css/style.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
@@ -16,7 +16,7 @@
 <body class="background">
 <div class="container">
 	<div class="d-flex flex-column justify-content-center align-items-center">
-		<img class="icon" src="/images/camera.png" />
+		<a href="/home"><img class="icon" src="/images/camera.png" /></a>
 		<h2>Edit Your Creation</h2> 
 	</div>
 	<hr>

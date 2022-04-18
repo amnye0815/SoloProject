@@ -7,7 +7,7 @@
 <html>
 <head>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="/css/profile.css">
+<link rel="stylesheet" type="text/css" href="/css/style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
@@ -16,23 +16,16 @@
 </head>
 <body class="background">
 <div class="container">
-		<div class="d-flex flex-column justify-content-center align-items-center">
-			<img class="icon" src="/images/camera.png" />
-			<h2 class="header align-self-center">${thisUser.firstName}'s Profile</h2>
-		</div>
+	<div>
+		<div class="topper d-flex flex-column justify-content-center align-items-center">
+			<a href="/home"><img class="icon" src="/images/camera.png" /></a>
+			<h2>${thisUser.firstName} ${thisUser.lastName}</h2>
+		</div> 
+	</div>
 	<hr>
-		<div class="d-flex justify-content-center">
-			<a class="links" style="color: #0DCAF0" href="/logout">Log out</a> | <a class="links" style="color: #0DCAF0" href="/home">Home</a> | <a class="links" style="color: #0DCAF0" href="/projects/new">Post a Project</a>
-		</div>
-	<hr>
-		<div class="d-flex flex-column justify-content-start">
-			<p>Name: ${thisUser.firstName} ${thisUser.lastName}</p>
-			<p>Age: ${profile.age}</p>
-			<p>Location: ${profile.location}</p>
-			<p>Bio: ${profile.bio}</p>
-			<p>Media of choice: ${profile.media}</p>
-		</div>
-		<a href="/profiles/${thisUser.id}/edit">EDIT INFO</a>
+	<div class="d-flex justify-content-center">
+		<a class="links" style="color: #0DCAF0" href="/logout">Log out</a> | <a class="links" style="color: #0DCAF0" href="/home">Home</a> | <a class="links" style="color: #0DCAF0" href="/projects/new">Post a Project</a>
+	</div>
 	<hr>
 		<div class="portfolio">
 			<div class="d-flex flex-wrap justify-content-start">

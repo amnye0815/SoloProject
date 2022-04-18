@@ -14,10 +14,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.austin.artapp.models.Profile;
 import com.austin.artapp.models.Project;
 import com.austin.artapp.models.User;
-import com.austin.artapp.services.ProfileService;
 import com.austin.artapp.services.ProjectService;
 import com.austin.artapp.services.UserService;
 import com.austin.artapp.validator.UserValidator;
@@ -28,8 +26,6 @@ public class UserController {
 	private UserService userService;
 	@Autowired
 	private UserValidator userValidator;
-	@Autowired
-	private ProfileService profService;
 	@Autowired
 	private ProjectService projService;
 
@@ -75,11 +71,10 @@ public class UserController {
 	
 //	Profile - GETTING TO SPECIFIC USER (Get)
 	@GetMapping("/profiles/{id}")
-	public String detailUser(Model model, @PathVariable("id") Long id, User user, HttpSession session, @ModelAttribute("project") Project project, @ModelAttribute("profile") Profile profile) {
+	public String detailUser(Model model, @PathVariable("id") Long id, User user, HttpSession session, @ModelAttribute("project") Project project) {
 		if(session.getAttribute("userId")!=null) {
 			model.addAttribute("thisUser", this.userService.findUserById(id));
 			model.addAttribute("project", this.projService.thisUsersProjects(user));
-			model.addAttribute("profile", this.profService.thisUsersProfile(user));
 			return "profile.jsp";
 		} else {
 			return "redirect:/";

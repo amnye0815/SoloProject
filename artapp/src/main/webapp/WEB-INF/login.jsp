@@ -8,7 +8,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="/css/login.css">
+<link rel="stylesheet" type="text/css" href="/css/style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
@@ -17,11 +17,9 @@
 <body class="background">
 <div class="container">
 	<div class="row">
-		<div class="d-flex flex-wrap justify-content-center">
-		<div>
+		<div class="d-flex flex-column align-items-center justify-content-center">
 		<img class="icon" src="images/camera.png" />
 		<h2>Art App</h2> 
-		</div>
 		</div>
 		<div class="hr">
 		<hr>
