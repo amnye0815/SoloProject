@@ -19,12 +19,10 @@
 </head>
 <body class="background">
 <div class="container">
-	<div>
 		<div class="topper d-flex flex-column justify-content-center align-items-center">
 			<a href="/home"><img class="icon" src="/images/camera.png" /></a>
 			<h2>Culture  Cache</h2>
 		</div> 
-	</div>
 	<hr>
 	<div class="d-flex justify-content-center">
 		<a class="links" style="color: #0DCAF0" href="/logout">Log out</a> | <a class="links" style="color: #0DCAF0" href="/profiles/${user.id}">My Profile</a> | <a class="links" style="color: #0DCAF0" href="/projects/new">Post a Project</a>

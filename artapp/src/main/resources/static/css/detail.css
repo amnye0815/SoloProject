@@ -1,31 +1,41 @@
 @charset "ISO-8859-1";
 
 .background {
-	background-color: orange;
+	background-image: url("/images/pexels-steve-johnson-1572386.jpg");
 }
 
 .container {
-	background-color: white;
+	background-color: rgba(255, 255, 255, 0.65);
+	position: relative;
+	width: 80;
+	border-radius: 10px;
+}
+
+.topper {
+	margin-top: 50px;
+	padding-top: 20px;
+	border-radius: 5px;
 }
 
 img {
-	max-width: 1190px;
+	max-width: 900px;
 	max-height: 900px;
 	object-fit: cover;
+	margin: 10px;
 }
 
 .icon {
 	width: 100px;
 	height: 80px;
 	object-fit: cover;
-	background-color: white;
 	margin-top: 10px;
 }
 
 .portfolio {
-	margin-left: 100px;
-	margin-right: 100px;
-	background-color: white;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	margin-bottom: 50px;
+	border-radius: 5px;
 }
 
 h2 {
@@ -46,17 +56,10 @@ a:hover {
 	text-decoration: underline;
 }
 
-.img-deets {
-	margin-left: 55px;
-}
-
-.border {
-	margin-left: 55px;
-}
-
-.likers {
-	margin-left: 55px;
-	margin-right: 55px;
+.desc {
+	font-style: italic;
+	display: flex;
+	justify-content: center;
 }
 
 form {

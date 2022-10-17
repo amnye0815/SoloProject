@@ -36,6 +36,16 @@ public class UserController {
 		return "login.jsp";
 	}
 	
+	@GetMapping("/register")
+	public String register(@ModelAttribute("user") User user) {
+		return "register.jsp";
+	}
+	
+	@GetMapping("/login-toggle")
+	public String loginToggle(@ModelAttribute("user") User user) {
+		return "login-toggle.jsp";
+	}
+	
 //	Register - NEW USER
 	@PostMapping("/registration")
 	public String registerUser(@Valid @ModelAttribute("user") User user, BindingResult result, HttpSession session) {

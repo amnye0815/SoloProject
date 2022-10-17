@@ -8,19 +8,17 @@
 <head>
 <meta charset="ISO-8859-1">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="/css/style.css">
+<link rel="stylesheet" type="text/css" href="/css/login.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
-<title>Art App</title>
+<link href="https://fonts.googleapis.com/css2?family=Megrim&family=Monoton&display=swap" rel="stylesheet">
+<link rel="icon" href="/images/camera.png">
+<title>Culture Cache - Join Today!</title>
 </head>
 <body class="background">
 <div class="container">
 	<div class="row">
-		<div class="d-flex flex-column align-items-center justify-content-center">
-		<img class="icon" src="images/camera.png" />
-		<h2>Art App</h2> 
-		</div>
+
 		<div class="hr">
 		<hr>
 		<div class="d=flex flex-column">
@@ -29,37 +27,7 @@
 		</div>
 		<hr>
 		</div>
-		<div class="col">
-		<h2>Register</h2>
-		<form:form method="POST" action="/registration" modelAttribute="user">
-			<div class="form-group">
-		        <form:label path="firstName">First Name:</form:label>
-		        <form:errors class="text-danger" path="firstName"/>
-				<form:input class="form-control" path="firstName"/>
-		    </div>
-		    <div class="form-group">
-		        <form:label path="lastName">Last Name:</form:label>
-		        <form:errors class="text-danger" path="lastName"/>
-		         <form:input class="form-control" path="lastName"/>
-			</div>
-		    <div class="form-group">
-		        <form:label path="email">Email:</form:label>
-		        <form:errors class="text-danger" path="email"/>
-		        <form:input class="form-control" path="email"/>
-		    </div>
-	      <div class="form-group">
-	            <form:label path="password">Password:</form:label>
-	            <form:errors class="text-danger" path="password"/>
-	            <form:password class="form-control" path="password"/>
-	       </div>
-	       <div class="form-group">
-	            <form:label path="passwordConfirm">Confirm Password:</form:label>
-	            <form:errors class="text-danger" path="passwordConfirm"/>
-	            <form:password class="form-control" path="passwordConfirm"/>
-			</div>
-			<input class="btn btn-info" type="submit" value="Register"/>
-	    </form:form>
-	    </div>   
+  
 	<div class="col">
     <h2>Login</h2>
 	<form method="post" action="/login">
@@ -76,6 +44,8 @@
     </form>   
     </div> 
     </div>
+    <a href="/register">Need to register? Click here!</a>
+    <a href="/login-toggle">Login Toggle Page for testing</a>
     </div>
 </body>
 </html>
