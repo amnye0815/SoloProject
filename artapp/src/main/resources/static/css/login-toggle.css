@@ -32,17 +32,18 @@
 
 #title {
 	text-align: center;
-	font-family: 'Megrim', cursive;
+	font-family: 'Monoton', cursive;
 }
 
 .form-box {
 	width: 380px;
-	height: 500px;
+	height: 580px;
 	background-color: rgba(255, 255, 255, 0.65);
 	position: relative;
-	margin: 6% auto;
+	margin: 3% auto;
 	border-radius: 30px;
 	padding: 5px;
+	overflow: hidden;
 }
 
 .button-box {
@@ -83,7 +84,6 @@
 
 .input-group {
 	top: 220px;
-	
 	position: absolute;
 	width: 280px;
 	transition: .5s;
@@ -103,29 +103,23 @@
 
 #submit-btn-link {
 	width: 85%;
-	margin-left: 30px;
+	margin-left: 60px;
+	margin-top: 20px;
 	padding: 10px 30px;
 	cursor: pointer;
 	display: block;
 	justify-content: center;
-	margin: auto;
 	background: linear-gradient(to right, #ff105f, #ffad06);
 	border-radius: 30px;
 	outline: none;
 	border: 0;
 }
 
-.check-box {
-	margin: 30px 10px 30px 0px;
+#login {
+	left: 50px;
 }
 
-span {
-	color: #777;
-	font-size: 12px;
-	bottom: 68px;
-	position: absolute;
+#register {
+	left: 450px;
 }
-
-
-
 

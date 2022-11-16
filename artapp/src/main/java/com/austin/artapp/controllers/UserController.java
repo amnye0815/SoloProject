@@ -33,7 +33,7 @@ public class UserController {
 //	home - LOGIN/REGISTRATION PAGE
 	@GetMapping("/")
 	public String login(@ModelAttribute("user") User user) {
-		return "login.jsp";
+		return "login-toggle.jsp";
 	}
 	
 	@GetMapping("/register")

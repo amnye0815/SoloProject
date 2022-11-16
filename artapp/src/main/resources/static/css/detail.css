@@ -1,7 +1,7 @@
 @charset "ISO-8859-1";
 
 .background {
-	background-image: url("/images/pexels-steve-johnson-1572386.jpg");
+	background-color: orange;
 }
 
 .container {

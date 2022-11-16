@@ -11,7 +11,7 @@
 <link rel="stylesheet" type="text/css" href="css/login-toggle.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Megrim&family=Monoton&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
 <link rel="icon" href="/images/camera.png">
 <title>Culture Cache</title>
 </head>
@@ -24,16 +24,45 @@
 			</div>
 			<div class="button-box">
 				<div id="btn"></div>
-				<button type="button" class="toggle-btn">Log In</button>
-				<button type="button" class="toggle-btn">Register</button>
+				<button type="button" class="toggle-btn" onclick="login()">Log In</button>
+				<button type="button" class="toggle-btn" onclick="register()">Register</button>
 			</div>
-			<form class="input-group">
-				<input type="text" class="input-field" placeholder="Email" required>
-				<input type="password" class="input-field" placeholder="Password" required>
-				<input type="checkbox" class="check-box"><span>Remember Password</span>
+			<form id="login" class="input-group" method="post" action="/login">
+			<p class="text-danger"><c:out value="${error}"/></p>
+				<input type="text" class="input-field" id="email" name="email"  placeholder="Email" required>
+				<input type="password" class="input-field" id="password" name="password" placeholder="Password" required>
 				<button type="submit" id="submit-btn-link" href="#submit-btn">Log In</button>
+			</form>
+			
+			<form id="register" class="input-group" method="post" action="/registration" modelAttribute="user">
+				<input type="text" class="input-field" id="firstName" name="firstName" placeholder="First Name" required>
+				<input type="text" class="input-field" id="lastName" name="lastName" placeholder="Last Name" required>
+				<input type="text" class="input-field" id="email" name="email" placeholder="Email" required>
+				<input type="password" class="input-field" id="password" name="password" placeholder="Password" required>
+				<input type="password" class="input-field" id="passwordConfirm" name="passwordConfirm" placeholder="Confirm Password" required>
+				<button type="submit" id="submit-btn-link" href="#submit-btn">Register</button>
 			</form>
 		</div>
 	</div>
+	
+<script>
+var x = document.getElementById("login");
+var y = document.getElementById("register");
+var z = document.getElementById("btn");
+
+function register(){
+	x.style.left = "-400px";
+	y.style.left = "50px";
+	z.style.left = "110px";
+}
+
+function login(){
+	x.style.left = "50px";
+	y.style.left = "450px";
+	z.style.left = "0";
+}
+
+</script>
+
 </body>
 </html>

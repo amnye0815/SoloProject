@@ -28,7 +28,7 @@
 	</div>
 	<hr>
 		<div class="portfolio">
-			<div class="d-flex flex-wrap justify-content-start">
+			<div class="d-flex flex-wrap justify-content-center align-items-center">
 				<c:forEach items="${project}" var="usersProject">
 					<p class="h-25"><a href="/projects/${usersProject.id}"><img class="border border-info rounded" src="${usersProject.image_url}"/></a></p>
 				</c:forEach>

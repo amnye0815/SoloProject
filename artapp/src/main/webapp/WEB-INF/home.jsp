@@ -21,7 +21,7 @@
 <div class="container">
 		<div class="topper d-flex flex-column justify-content-center align-items-center">
 			<a href="/home"><img class="icon" src="/images/camera.png" /></a>
-			<h2>Culture  Cache</h2>
+			<h2>Culture Cache</h2>
 		</div> 
 	<hr>
 	<div class="d-flex justify-content-center">
